@@ -1,0 +1,95 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fbfd; /* Default body background color */
+  color: #333;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  position: fixed;
+  height: 100vh;
+  background-color: #2196F3; /* Solid color for the sidebar */
+  color: white;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Main Content Area */
+.content-container {
+  margin-left: 250px; /* This makes the content start after the sidebar */
+  padding: 20px;
+  width: calc(100% - 250px); /* Adjust the width of content to match the sidebar offset */
+  min-height: 100vh; /* Ensure content area takes up the full screen */
+  background-color: #fff; /* Set a background color for the content */
+  z-index: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 60vh; /* Ensures the hero section takes up 60% of the screen height */
+  background: linear-gradient(135deg, #31003d 0%, #000000 100%); /* Gradient background for hero section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-left: 250px; /* Adjust to account for sidebar width */
+  animation: fadeIn 1s ease-in-out; /* Faster fade-in */
+}
+
+.hero-content {
+  z-index: 1; /* Ensure the content is above the background */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #fff;
+  color: #4facfe;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background-color: #4facfe;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
