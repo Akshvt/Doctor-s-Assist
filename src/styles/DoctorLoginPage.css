@@ -6,46 +6,63 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Prevents scrollbars caused by the blur */
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #F4F1DE, #E7EAF6, #D8E2DC, #FDE2E4);
 }
 
-/* Background Layer */
+/* Background Layer with Soft Blur */
 .background-layer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://cdn.discordapp.com/attachments/1260256752566403174/1317872781228118016/doctor_office-wallpaper-1920x1080.jpg?ex=6760442b&is=675ef2ab&hm=8403e40d177951263c3cfaf4b718075a3d118f62dd72fa7d1fbdfb29ee2c9ae2&'); /* Replace with your image URL */
-    background-size: cover; /* Ensure the background image covers the entire page */
-    background-position: center; /* Center the image */
-    background-attachment: fixed; /* Keep the background fixed during scroll */
-    filter: blur(8px); /* Apply blur to the background */
-    z-index: -1; /* Ensure the background is behind the content */
+    background: url('https://cdn.discordapp.com/attachments/1260256752566403174/1317872781228118016/doctor_office-wallpaper-1920x1080.jpg?ex=6760442b&is=675ef2ab&hm=8403e40d177951263c3cfaf4b718075a3d118f62dd72fa7d1fbdfb29ee2c9ae2&') center/cover no-repeat;
+    filter: blur(8px);
+    z-index: -1;
+    opacity: 0.8;
 }
 
-/* Centered container for the login form */
+/* Sectioned Background Colors */
+.section {
+    position: absolute;
+    width: 100%;
+    height: 33%;
+    left: 0;
+}
+
+.section:nth-child(1) { background: rgba(244, 241, 222, 0.7); top: 0; }
+.section:nth-child(2) { background: rgba(231, 234, 246, 0.7); top: 33%; }
+.section:nth-child(3) { background: rgba(216, 226, 220, 0.7); top: 66%; }
+
+/* Glassmorphism Effect for Login Container */
 .login-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px;
-    background-color: rgba(255, 255, 255, 0.8); /* Light background */
-    border-radius: 20px;  /* Rounded corners */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px;  /* Max width for the form */
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+/* Title Styling */
 .login-container h2 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 700;
     color: #333;
     margin-bottom: 20px;
     text-align: center;
+    letter-spacing: 1px;
 }
 
+/* Form Styling */
 .login-form {
     display: flex;
     flex-direction: column;
@@ -57,53 +74,51 @@
     padding: 12px;
     margin: 10px 0;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: none;
     font-size: 16px;
     outline: none;
-    transition: border 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.6);
+    color: #333;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.login-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .login-input:focus {
-    border-color: #0061f2; /* Blue border on focus */
-    box-shadow: 0 0 5px rgba(33, 150, 243, 0.6); /* Soft glow effect */
+    border-color: #8D99AE;
+    box-shadow: 0 0 8px rgba(141, 153, 174, 0.5);
 }
 
 /* Button Styling */
 .login-btn {
     padding: 12px;
     font-size: 18px;
+    font-weight: bold;
     color: white;
-    background-color: #0061f2; /* Primary blue */
+    background: linear-gradient(135deg, #8D99AE, #4A4E69);
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
     margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(72, 85, 106, 0.3);
 }
 
 .login-btn:hover {
-    background-color: #004bbd; /* Darker blue on hover */
-    transform: translateY(-3px); /* Button hover effect */
+    background: linear-gradient(135deg, #4A4E69, #22223B);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(72, 85, 106, 0.5);
 }
 
-/* Animations */
+/* Fade-in Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
     }
     to {
         opacity: 1;
-    }
-}
-
-/* Optional: Add smooth form slide-up effect */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

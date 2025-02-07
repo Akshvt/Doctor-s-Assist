@@ -1,22 +1,57 @@
-/* Appointments Page Styles */
+/* Appointments Page Styles - Modern Table Design */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.2); /* Light glass effect */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Headers */
+th {
+  background: linear-gradient(135deg, #5A189A, #3A0CA3); /* Gradient Header */
+  color: white;
+  font-weight: bold;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Table Cells */
+td {
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease-in-out;
+}
+
+/* Alternating Row Colors */
+tr:nth-child(odd) td {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+tr:nth-child(even) td {
+  background: rgba(240, 240, 240, 0.8);
+}
+
+/* Hover Effect */
+tr:hover td {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.01);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
   }
-  
+
   th, td {
-    border: 1px solid #ccc;
     padding: 10px;
-    text-align: left;
   }
-  
-  th {
-    background-color: #f1f1f1;
-    color: #333;
-  }
-  
-  td {
-    background-color: #fff;
-  }
-  
+}

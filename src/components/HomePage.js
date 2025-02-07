@@ -16,7 +16,7 @@ const HomePage = () => {
         
         {/* Container with button and "Please select" text */}
         <div className="button-box">
-          <p className="select-text">You are a❔</p>
+          <p className="select-text">You are a.....</p>
           <div className="button-container">
             <button className="doctor-btn" onClick={() => navigate("/doctor-login")}>
               Doctor

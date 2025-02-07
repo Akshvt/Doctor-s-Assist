@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9fbfd; /* Default body background color */
+  background-color: #f9fbfd;
   color: #333;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   display: flex;
@@ -19,69 +19,172 @@ body {
   width: 250px;
   position: fixed;
   height: 100vh;
-  background-color: #2196F3; /* Solid color for the sidebar */
+  background: linear-gradient(135deg, #434243, rgb(41, 39, 39));
   color: white;
   padding: 20px;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar:hover {
+  width: 270px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 250px;
+  width: calc(100% - 250px);
+  height: 70px;
+  background: #2C2C2C; /* Charcoal Grey */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease-in-out;
+}
+
+.navbar:hover {
+  background: #1E1E1E; /* Darker charcoal on hover */
+}
+
+/* Navbar Links */
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Hover Effect */
+.navbar a:hover {
+  color: #D4AF37; /* Muted Gold */
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* Active/Selected Effect */
+.navbar a:active,
+.navbar a:focus {
+  background: #D4AF37; /* Muted Gold */
+  color: #2C2C2C; /* Charcoal Grey text */
+  box-shadow: 0px 4px 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Animation for navbar elements */
+@keyframes navbarItemHover {
+  0% {
+    transform: scale(1);
+    text-shadow: none;
+  }
+  50% {
+    transform: scale(1.08);
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: none;
+  }
+}
+
+/* Applying Animation */
+.navbar a:hover {
+  animation: navbarItemHover 0.4s ease-in-out;
 }
 
 /* Main Content Area */
 .content-container {
-  margin-left: 250px; /* This makes the content start after the sidebar */
+  margin-left: 250px;
   padding: 20px;
-  width: calc(100% - 250px); /* Adjust the width of content to match the sidebar offset */
-  min-height: 100vh; /* Ensure content area takes up the full screen */
-  background-color: #fff; /* Set a background color for the content */
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fff, #f0f0f0);
   z-index: 0;
+  transition: margin-left 0.3s ease-in-out;
 }
 
 /* Hero Section */
 .hero-section {
-  height: 60vh; /* Ensures the hero section takes up 60% of the screen height */
-  background: linear-gradient(135deg, #31003d 0%, #000000 100%); /* Gradient background for hero section */
+  height: 60vh;
+  background: linear-gradient(135deg, #31003d 0%, #000000 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
   padding: 20px;
-  margin-left: 250px; /* Adjust to account for sidebar width */
-  animation: fadeIn 1s ease-in-out; /* Faster fade-in */
+  margin-left: 250px;
+  animation: fadeInUp 1s ease-in-out;
+  border-radius: 10px;
 }
 
 .hero-content {
-  z-index: 1; /* Ensure the content is above the background */
+  z-index: 1;
 }
 
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 15px;
+  animation: slideIn 1s ease-in-out;
 }
 
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 25px;
+  animation: slideIn 1.2s ease-in-out;
 }
 
 .cta-button {
   padding: 15px 30px;
   background-color: #fff;
-  color: #4facfe;
+  color: #9D4EDD;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
-  background-color: #4facfe;
+  background-color: #9D4EDD;
   color: white;
   transform: scale(1.1);
+}
+
+/* Key Features Section */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 50px 20px;
+  margin-top: 40px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.feature-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  background: #f8f9fa;
 }
 
 /* Animations */
@@ -91,5 +194,27 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
