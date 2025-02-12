@@ -7,7 +7,7 @@
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(to bottom right, #F4F1DE, #E7EAF6, #D8E2DC, #FDE2E4);
+    background: linear-gradient(to bottom right, #f2ecc2, #E7EAF6, #daf8e6, #f6cbce);
 }
 
 /* Background Layer with Soft Blur */
@@ -31,9 +31,9 @@
     left: 0;
 }
 
-.section:nth-child(1) { background: rgba(244, 241, 222, 0.7); top: 0; }
-.section:nth-child(2) { background: rgba(231, 234, 246, 0.7); top: 33%; }
-.section:nth-child(3) { background: rgba(216, 226, 220, 0.7); top: 66%; }
+.section:nth-child(1) { background: rgba(244, 240, 213, 0.7); top: 0; }
+.section:nth-child(2) { background: rgba(227, 232, 251, 0.7); top: 33%; }
+.section:nth-child(3) { background: rgba(199, 234, 213, 0.7); top: 66%; }
 
 /* Glassmorphism Effect for Login Container */
 .login-container {

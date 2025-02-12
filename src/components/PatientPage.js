@@ -6,10 +6,8 @@ const PatientPage = () => {
     <div className="patient-page">
       <nav className="navbar-patient">
         <div className="logo">
-          <img
-            src="https://cdn.discordapp.com/attachments/1260256752566403174/1316468362049753128/20241211_2342342.jpg?ex=675b2834&is=6759d6b4&hm=0c96cfde4bd905f3bb5d9526957aca05695e13bf786ef53b7c51f84be77073c5&"
-            alt="Logo"
-          />
+        <img src="/logo192.png" alt="Doctor's Aid Logo" className="sidebar-logo" />
+         
           Doc Assist
         </div>
         <ul className="nav-links">

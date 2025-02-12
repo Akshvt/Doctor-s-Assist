@@ -24,6 +24,9 @@ const HomePage = () => {
             <button className="patient-btn" onClick={() => navigate("/patient")}>
               Patient
             </button>
+            <button className="staff-btn" onClick={() => navigate("/staff-home")}>
+              Staff Member
+            </button>
           </div>
         </div>
       </div>
@@ -32,3 +35,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+

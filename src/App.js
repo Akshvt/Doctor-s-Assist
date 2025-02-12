@@ -4,10 +4,16 @@ import HomePage from "./components/HomePage";
 import DoctorLoginPage from "./components/DoctorLoginPage";
 import DoctorPage from "./components/DoctorPage";
 import PatientPage from "./components/PatientPage";
-import Appointments from "./components/Appointments"; // New route
-import PatientInfo from "./components/PatientInfo"; // New route
-import Profile from "./components/Profile"; // New route
-import Logout from "./components/Logout"; // New route
+import Appointments from "./components/Appointments";
+import PatientInfo from "./components/PatientInfo";
+import Profile from "./components/Profile";
+import Logout from "./components/Logout";
+import StaffHomePage from "./components/StaffHomePage";
+import BookAppointments from "./components/BookAppointments";  
+import StaffPatientInfo from "./components/StaffPatientInfo"; 
+import StaffAppointments from "./components/StaffAppointments";
+import SavedPatientInfo from "./components/SavedPatientInfo";
+import PatientDetails from "./components/PatientDetails";
 
 const App = () => {
   return (
@@ -24,9 +30,19 @@ const App = () => {
         <Route path="/patients" element={<PatientInfo />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/logout" element={<Logout />} />
+
+        {/* Staff Pages */}
+        <Route path="/staff-home" element={<StaffHomePage />} />
+        <Route path="/staff-patient-info" element={<StaffPatientInfo />} /> 
+        <Route path="/book-appointment" element={<BookAppointments />} />
+        <Route path="/staff-appointments" element={<StaffAppointments />} />
+        <Route path="/saved-patient-info" element={<SavedPatientInfo />} />
+        <Route path="/patient-details/:id" element={<PatientDetails />} /> 
+
       </Routes>
     </Router>
   );
 };
 
 export default App;
+

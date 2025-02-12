@@ -6,23 +6,30 @@
     padding: 20px;
     color: white;
     position: fixed;
+    z-index: 2;
   }
-  
-  .logo-container {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+  nav {
+    position: relative;
+    z-index: 3;
   }
   
   .nav-menu {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  
+  .sidebar-logo {
+    width: 40px;  /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Adds spacing between logo and text */
+    pointer-events: none; 
   }
   
   .nav-item {

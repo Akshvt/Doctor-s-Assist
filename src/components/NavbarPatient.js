@@ -5,10 +5,7 @@ const NavbarPatient = () => {
   return (
     <nav className="navbar-patient">
       <div className="logo">
-        <img
-          src="https://cdn.discordapp.com/attachments/1260256752566403174/1296824547349237800/image.png"
-          alt="Logo"
-        />
+      <img src="/logo192.png" alt="Doctor's Aid Logo" className="sidebar-logo" />
         Doc Assist
       </div>
       <ul className="nav-links">

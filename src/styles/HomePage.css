@@ -6,7 +6,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #f7f7f7, #e3f2fd); /* Soft gradient background */
+    background: linear-gradient(to bottom, #f7f7f7, #f0f2ce); /* Soft gradient background */
 }
 
 /* HomePage Styling */
@@ -101,6 +101,7 @@ button {
     transform: scale(1.05);
 }
 
+
 /* Doctor Button Styling */
 .doctor-btn {
     background: #2979ff;
@@ -110,6 +111,17 @@ button {
 
 .doctor-btn:hover {
     background: #1565c0;
+    transform: scale(1.05);
+}
+
+.staff-btn {
+    background: #bf1bed;
+    color: white;
+    box-shadow: 0 4px 12px rgba(176, 68, 248, 0.5);
+}
+
+.staff-btn:hover {
+    background: #831098;
     transform: scale(1.05);
 }
   
