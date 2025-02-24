@@ -9,11 +9,13 @@ import PatientInfo from "./components/PatientInfo";
 import Profile from "./components/Profile";
 import Logout from "./components/Logout";
 import StaffHomePage from "./components/StaffHomePage";
-import BookAppointments from "./components/BookAppointments";  
-import StaffPatientInfo from "./components/StaffPatientInfo"; 
+import BookAppointments from "./components/BookAppointments";
+import StaffPatientInfo from "./components/StaffPatientInfo";
 import StaffAppointments from "./components/StaffAppointments";
 import SavedPatientInfo from "./components/SavedPatientInfo";
 import PatientDetails from "./components/PatientDetails";
+import HeartDiseasePrediction from "./components/HeartDiseasePrediction";  // New Import
+import DiabetesPrediction from "./components/DiabetesPrediction";  // New Import
 
 const App = () => {
   return (
@@ -33,11 +35,13 @@ const App = () => {
 
         {/* Staff Pages */}
         <Route path="/staff-home" element={<StaffHomePage />} />
-        <Route path="/staff-patient-info" element={<StaffPatientInfo />} /> 
+        <Route path="/staff-patient-info" element={<StaffPatientInfo />} />
         <Route path="/book-appointment" element={<BookAppointments />} />
         <Route path="/staff-appointments" element={<StaffAppointments />} />
         <Route path="/saved-patient-info" element={<SavedPatientInfo />} />
-        <Route path="/patient-details/:id" element={<PatientDetails />} /> 
+        <Route path="/patient-details/:id" element={<PatientDetails />} />
+        <Route path="/prediction/heart-diseases" element={<HeartDiseasePrediction />} />
+        <Route path="/prediction/diabetes" element={<DiabetesPrediction />} />
 
       </Routes>
     </Router>
@@ -45,4 +49,7 @@ const App = () => {
 };
 
 export default App;
+
+
+
 
