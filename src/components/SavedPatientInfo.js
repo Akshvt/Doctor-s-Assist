@@ -39,7 +39,7 @@ const SavedPatientInfo = () => {
             <th>DOB</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>Action</th> {/* New Column for View Details Button */}
+            <th>Action</th> {/* View Details Button */}
           </tr>
         </thead>
         <tbody>
@@ -52,7 +52,10 @@ const SavedPatientInfo = () => {
                 <td>{patient.phone}</td>
                 <td>{patient.email}</td>
                 <td>
-                  <button className="view-details-btn" onClick={() => navigate(`/patient-details/${patient.id}`)}>
+                  <button
+                    className="view-details-btn"
+                    onClick={() => navigate(`/patient-details/${patient.id}`)}
+                  >
                     View Details
                   </button>
                 </td>
@@ -70,4 +73,3 @@ const SavedPatientInfo = () => {
 };
 
 export default SavedPatientInfo;
-

@@ -16,7 +16,7 @@ const DoctorPage = () => {
         <div className="hero-content">
           <h1>Welcome, Doctor!</h1>
           <p>Empower your practice with seamless patient management.</p>
-          <button className="cta-button">Get Started</button>
+          
         </div>
       </header>
     </div>

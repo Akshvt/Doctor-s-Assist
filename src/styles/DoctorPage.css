@@ -32,13 +32,13 @@ body {
 .sidebar:hover {
   width: 270px;
 }
+
 .sidebar-logo {
   width: 80px;
   height: auto;
   display: block;
   margin: 20px auto;
 }
-
 
 /* Navbar */
 .navbar {
@@ -47,7 +47,7 @@ body {
   left: 250px;
   width: calc(100% - 250px);
   height: 70px;
-  background: #2C2C2C; /* Charcoal Grey */
+  background: #2C2C2C;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +57,7 @@ body {
 }
 
 .navbar:hover {
-  background: #1E1E1E; /* Darker charcoal on hover */
+  background: #1E1E1E;
 }
 
 /* Navbar Links */
@@ -73,7 +73,7 @@ body {
 
 /* Hover Effect */
 .navbar a:hover {
-  color: #D4AF37; /* Muted Gold */
+  color: #D4AF37;
   transform: scale(1.05);
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
@@ -81,12 +81,12 @@ body {
 /* Active/Selected Effect */
 .navbar a:active,
 .navbar a:focus {
-  background: #D4AF37; /* Muted Gold */
-  color: #2C2C2C; /* Charcoal Grey text */
+  background: #D4AF37;
+  color: #2C2C2C;
   box-shadow: 0px 4px 10px rgba(212, 175, 55, 0.5);
 }
 
-/* Animation for navbar elements */
+/* Navbar animation */
 @keyframes navbarItemHover {
   0% {
     transform: scale(1);
@@ -102,7 +102,6 @@ body {
   }
 }
 
-/* Applying Animation */
 .navbar a:hover {
   animation: navbarItemHover 0.4s ease-in-out;
 }
@@ -121,16 +120,47 @@ body {
 /* Hero Section */
 .hero-section {
   height: 60vh;
-  background: linear-gradient(135deg, #31003d 0%, #000000 100%);
+  width: calc(100% - 250px);
+  margin-left: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
-  padding: 20px;
-  margin-left: 250px;
-  animation: fadeInUp 1s ease-in-out;
   border-radius: 10px;
+  animation: gradientBackground 10s ease infinite;
+  background: linear-gradient(
+    -45deg,
+    #722F37,
+    #8A3E5F,
+    #4B3049,
+    #5A3F37,
+    #2C2C2C,
+    #3E1F47,
+    #6C5B7B,
+    #D4AF37
+  );
+  background-size: 300% 300%;
+  padding: 0;
+}
+
+/* Animated Multicolor Background */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-content {
@@ -141,10 +171,9 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 15px;
-  color: #FFD700; /* Gold */
+  color: #FFD700;
   animation: slideIn 1s ease-in-out;
 }
-
 
 .hero-content p {
   font-size: 1.2rem;
@@ -155,7 +184,7 @@ body {
 .cta-button {
   padding: 15px 30px;
   background-color: #fff;
-  color: #9D4EDD;
+  color: #722F37;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -166,7 +195,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: #9D4EDD;
+  background-color: #722F37;
   color: white;
   transform: scale(1.1);
 }

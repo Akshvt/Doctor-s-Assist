@@ -7,27 +7,10 @@ const DoctorLoginPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const validateUsername = (username) => {
-    return username.length >= 6;
-  };
-
-  const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return passwordRegex.test(password);
-  };
-
   const handleLogin = () => {
-    if (!validateUsername(username)) {
-      alert("Username must be at least 6 characters long.");
-      return;
+    if (username && password) {
+      navigate('/doctor');
     }
-
-    if (!validatePassword(password)) {
-      alert("Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
-      return;
-    }
-
-    navigate('/doctor');
   };
 
   const handleKeyDown = (e) => {

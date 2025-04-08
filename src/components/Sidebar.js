@@ -33,6 +33,13 @@ const Sidebar = () => {
           Patient Info
         </NavLink>
         <NavLink
+          to="/patient-details" // ✅ Changed this line
+          className="nav-item"
+          activeClassName="active"
+        >
+          Patient Details
+        </NavLink>
+        <NavLink
           to="/profile"
           className="nav-item"
           activeClassName="active"

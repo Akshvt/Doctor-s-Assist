@@ -1,48 +1,37 @@
 // Profile.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import "../styles/Profile.css";
 
 const Profile = () => {
-  const [form, setForm] = useState({
-    name: "Dr. John Doe",
-    specialization: "Cardiologist",
-    email: "john.doe@example.com",
+  const [doctor, setDoctor] = useState({
+    D_Id: "D123",
+    First_Name: "John",
+    Last_Name: "Doe",
+    Email: "john.doe@example.com",
+    Specialty: "Cardiologist",
+    Phone: "+1-234-567-8901",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Profile submitted:", form);
-  };
+  // Simulating data fetch from backend
+  useEffect(() => {
+    // TODO: Replace with actual API call
+    // fetchDoctorProfile().then(data => setDoctor(data));
+  }, []);
 
   return (
     <div className="main-container">
       <Sidebar />
-      <div className="content-container">
-        <h1>Profile</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input name="name" value={form.name} onChange={handleChange} />
-          </label>
-          <label>
-            Specialization:
-            <input
-              name="specialization"
-              value={form.specialization}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Email:
-            <input name="email" value={form.email} onChange={handleChange} />
-          </label>
-          <button type="submit">Save</button>
-        </form>
+      <div className="profile-container">
+        <h1>Doctor Profile</h1>
+        <div className="profile-info">
+          <p><strong>Doctor ID:</strong> {doctor.D_Id}</p>
+          <p><strong>First Name:</strong> {doctor.First_Name}</p>
+          <p><strong>Last Name:</strong> {doctor.Last_Name}</p>
+          <p><strong>Email:</strong> {doctor.Email}</p>
+          <p><strong>Specialty:</strong> {doctor.Specialty}</p>
+          <p><strong>Phone:</strong> {doctor.Phone}</p>
+        </div>
       </div>
     </div>
   );
