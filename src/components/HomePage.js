@@ -24,8 +24,8 @@ const HomePage = () => {
             <button className="patient-btn" onClick={() => navigate("/patient")}>
               Patient
             </button>
-            <button className="staff-btn" onClick={() => navigate("/staff-home")}>
-              Staff Member
+            <button className="staff-btn" onClick={() => navigate("/staff-login")}>
+              Staff 
             </button>
           </div>
         </div>

@@ -8,6 +8,26 @@
   background: linear-gradient(to bottom, #4c90f6, #a6d8e9); /* Blue gradient */
 }
 
+.diabetes-form {
+  display: flex;
+  flex-direction: column; /* Keeps elements stacked vertically */
+  align-items: center;
+  width: 100%;
+}
+
+.prediction-result {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  width: 80%;
+  max-width: 400px;
+}
+
+
 /* Form Wrapper */
 .form-wrapper {
   background: #ffffff;

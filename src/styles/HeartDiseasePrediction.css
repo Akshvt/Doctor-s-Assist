@@ -70,6 +70,26 @@
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
   }
+
+  .heart-disease-form {
+    display: flex;
+    flex-direction: column; /* Ensures vertical layout */
+    align-items: center;
+    width: 100%;
+  }
+  
+  .prediction-result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+    max-width: 400px;
+  }
+  
   
   /* Hover Effect */
   .heart-disease-form button:hover {
