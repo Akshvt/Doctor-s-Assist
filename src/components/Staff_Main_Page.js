@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/StaffHomePage.css";
+import "../styles/Staff_Main_Page.css";
 
-const StaffHomePage = () => {
+const Staff_Main_Page = () => {
   const navigate = useNavigate();
   const [recordsDropdownOpen, setRecordsDropdownOpen] = useState(false);
   const [predictionDropdownOpen, setPredictionDropdownOpen] = useState(false);
@@ -17,6 +17,10 @@ const StaffHomePage = () => {
 
           <button className="sidebar-btn" onClick={() => navigate("/staff-home")}>
             Home
+          </button>
+
+          <button onClick={() => navigate("/staff-profile")} className="sidebar-btn">
+            View Profile
           </button>
 
           <button className="sidebar-btn" onClick={() => navigate("/saved-patient-info")}>
@@ -73,11 +77,8 @@ const StaffHomePage = () => {
             </button>
             {recordsDropdownOpen && (
               <div className="dropdown-menu">
-                <button className="dropdown-item" onClick={() => navigate("/records-ipd")}>
+                <button className="dropdown-item" onClick={() => navigate("/ipd-records")}>
                   Inpatient Department (IPD)
-                </button>
-                <button className="dropdown-item" onClick={() => navigate("/records-opd")}>
-                  Outpatient Department (OPD)
                 </button>
               </div>
             )}
@@ -95,4 +96,4 @@ const StaffHomePage = () => {
   );
 };
 
-export default StaffHomePage;
+export default Staff_Main_Page;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "../styles/DoctorLoginPage.css";
+import "../styles/Doctor_Login_Page.css";
 
-const DoctorLoginPage = () => {
+const Doctor_Login_Page = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -48,4 +48,4 @@ const DoctorLoginPage = () => {
   );
 };
 
-export default DoctorLoginPage;
+export default Doctor_Login_Page;

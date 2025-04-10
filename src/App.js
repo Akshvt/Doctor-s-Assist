@@ -2,22 +2,26 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import DoctorLoginPage from "./components/DoctorLoginPage";
-import StaffLoginPage from "./components/StaffLoginPage";
-import DoctorPage from "./components/DoctorPage";
+import Doctor_Login_Page from "./components/Doctor_Login_Page";
+import Staff_Login_Page from "./components/Staff_Login_Page";
+import Doctor_Main_Page from "./components/Doctor_Main_Page";
 import PatientPage from "./components/PatientPage";
-import Appointments from "./components/Appointments";
+import Appointments from "./components/Appointments_View_Doctor";
 import PatientInfo from "./components/PatientInfo";
-import Profile from "./components/Profile";
+import Doctor_Profile from "./components/Doctor_Profile";
 import Logout from "./components/Logout";
-import StaffHomePage from "./components/StaffHomePage";
-import BookAppointments from "./components/BookAppointments";
-import StaffPatientInfo from "./components/StaffPatientInfo";
-import StaffAppointments from "./components/StaffAppointments";
-import SavedPatientInfo from "./components/SavedPatientInfo";
-import PatientDetails from "./components/PatientDetails";
-import HeartDiseasePrediction from "./components/HeartDiseasePrediction";  // New Import
-import DiabetesPrediction from "./components/DiabetesPrediction";  // New Import
+import Staff_Main_Page from "./components/Staff_Main_Page";
+import StaffProfile from "./components/Staff_Profile";
+import Appointments_Detail_Form from "./components/Appointments_Detail_Form";
+// import Patient_Detail_Form from "./components/Patient_Detail_Form";
+import Appointments_View_Staff from "./components/Appointments_View_Staff";
+import SavedPatientInfo from "./components/Patient_Details_View";
+import Patient_Detail_Form from "./components/Patient_Detail_Form";
+import Heart_Prediction from "./components/Heart_Prediction";  // New Import
+import Diabetic_Prediction from "./components/Diabetic_Prediction";  // New Import
+import OPDRecords from "./components/OPDRecords"; 
+import IPD_Records_Form from './components/IPD_Records_Form';
+
 
 const App = () => {
   return (
@@ -25,26 +29,30 @@ const App = () => {
       <Routes>
         {/* Existing Routes */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/doctor-login" element={<DoctorLoginPage />} />
-        <Route path="/staff-login" element={<StaffLoginPage />} /> 
-        <Route path="/doctor" element={<DoctorPage />} />
+        <Route path="/doctor-login" element={<Doctor_Login_Page />} />
+        <Route path="/staff-login" element={<Staff_Login_Page />} /> 
+        <Route path="/doctor" element={<Doctor_Main_Page />} />
         <Route path="/patient" element={<PatientPage />} />
 
         {/* New Routes */}
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/patients" element={<PatientInfo />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Doctor_Profile />} />
         <Route path="/logout" element={<Logout />} />
 
         {/* Staff Pages */}
-        <Route path="/staff-home" element={<StaffHomePage />} />
-        <Route path="/staff-patient-info" element={<StaffPatientInfo />} />
-        <Route path="/book-appointment" element={<BookAppointments />} />
-        <Route path="/staff-appointments" element={<StaffAppointments />} />
+        <Route path="/staff-home" element={<Staff_Main_Page />} />
+        <Route path="/staff-patient-info" element={<Patient_Detail_Form />} />
+        <Route path="/book-appointment" element={<Appointments_Detail_Form />} />
+        <Route path="/staff-appointments" element={<Appointments_View_Staff />} />
         <Route path="/saved-patient-info" element={<SavedPatientInfo />} />
-        <Route path="/patient-details/:id" element={<PatientDetails />} />
-        <Route path="/prediction/heart-diseases" element={<HeartDiseasePrediction />} />
-        <Route path="/prediction/diabetes" element={<DiabetesPrediction />} />
+        {/* <Route path="/patient-detail/:id" element={<Patient_Detail_Form />} /> */}
+        <Route path="/prediction/heart-diseases" element={<Heart_Prediction />} />
+        <Route path="/prediction/diabetes" element={<Diabetic_Prediction />} />
+        <Route path="/opd-records" element={<OPDRecords />} />
+        <Route path="/ipd-records" element={<IPD_Records_Form />} />
+        <Route path="/staff-profile" element={<StaffProfile />} />
+
 
       </Routes>
     </Router>

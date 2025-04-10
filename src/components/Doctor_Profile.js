@@ -1,9 +1,9 @@
 // Profile.js
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
-import "../styles/Profile.css";
+import "../styles/Doctor_Profile.css";
 
-const Profile = () => {
+const Doctor_Profile = () => {
   const [doctor, setDoctor] = useState({
     D_Id: "D123",
     First_Name: "John",
@@ -37,4 +37,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Doctor_Profile;

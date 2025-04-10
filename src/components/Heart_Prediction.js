@@ -1,10 +1,7 @@
-
-// export default HeartDiseasePrediction;
-
 import React, { useState } from "react";
-import "../styles/HeartDiseasePrediction.css"; // Import the CSS
+import "../styles/Heart_Prediction.css"; // Import the CSS
 
-const HeartDiseasePrediction = () => {
+const Heart_Prediction = () => {
   const [formData, setFormData] = useState({
     age: "",
     gender: "",
@@ -111,6 +108,6 @@ const HeartDiseasePrediction = () => {
   );
 };
 
-export default HeartDiseasePrediction;
+export default Heart_Prediction;
 
 
