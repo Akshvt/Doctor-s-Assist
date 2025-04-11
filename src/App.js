@@ -9,6 +9,7 @@ import PatientPage from "./components/PatientPage";
 import Appointments from "./components/Appointments_View_Doctor";
 import PatientInfo from "./components/PatientInfo";
 import Doctor_Profile from "./components/Doctor_Profile";
+import PatientMainPage from "./components/PatientMainPage";
 import Logout from "./components/Logout";
 import Staff_Main_Page from "./components/Staff_Main_Page";
 import StaffProfile from "./components/Staff_Profile";
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/staff-login" element={<Staff_Login_Page />} /> 
         <Route path="/doctor" element={<Doctor_Main_Page />} />
         <Route path="/patient" element={<PatientPage />} />
+        <Route path="/patient-main" element={<PatientMainPage />} />
 
         {/* New Routes */}
         <Route path="/appointments" element={<Appointments />} />

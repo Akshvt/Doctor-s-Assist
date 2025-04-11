@@ -1,30 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/PatientPage.css";
 
 const PatientPage = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/patient-main");
+  };
+
   return (
     <div className="patient-page">
-      <nav className="navbar-patient">
-        <div className="logo">
-        <img src="/logo192.png" alt="Doctor's Aid Logo" className="sidebar-logo" />
-         
-          Doc Assist
-        </div>
-        <ul className="nav-links">
-          <li><a href="#personal-info">Personal Info</a></li>
-          <li><a href="#medical-history">Medical History</a></li>
-          <li><a href="#prediction">Prediction</a></li>
-          <li><a href="#requirements">Requirements</a></li>
-        </ul>
-      </nav>
-
       <section className="hero">
-        <h1>Welcome to Doc Assist</h1>
+        <h1>Welcome to Doctor's Aid</h1>
         <p>Your trusted healthcare assistant</p>
-        <div className="cta-buttons">
-          <button className="btn">Sign Up Now!</button>
-          <button className="btn">Book Appointment</button>
-        </div>
       </section>
 
       <section className="key-features">
@@ -39,9 +29,9 @@ const PatientPage = () => {
 
       <section className="login-section">
         <h3>Login</h3>
-        <form className="login-form">
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
+        <form className="login-form" onSubmit={handleLogin}>
+          <input type="text" placeholder="Username" required />
+          <input type="password" placeholder="Password" required />
           <button type="submit">Login</button>
         </form>
       </section>

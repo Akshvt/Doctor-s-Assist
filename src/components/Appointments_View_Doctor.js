@@ -1,122 +1,137 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import "../styles/PatientInfo.css";
+import "../styles/Appointments_View_Staff.css"; // Reuse same styling
 
-const PatientInfo = () => {
-  const navigate = useNavigate();
-
-  const [patients] = useState([
-    { applicationId: "A001", patientId: "P001", name: "John Doe", date: "2024-12-10" },
-    { applicationId: "A002", patientId: "P002", name: "Jane Smith", date: "2024-12-09" },
-    { applicationId: "A003", patientId: "P003", name: "Robert Brown", date: "2024-12-11" },
-    { applicationId: "A004", patientId: "P004", name: "Emily Davis", date: "2024-12-08" },
-    { applicationId: "A005", patientId: "P005", name: "Michael Johnson", date: "2024-12-10" },
+const Appointments_View_Doctor = () => {
+  const [appointments] = useState([
+    {
+      appId: "APP201",
+      docId: "DOC101",
+      pId: "P101",
+      name: "Ravi Mehta",
+      date: "2025-04-04",
+      vitals: {
+        bloodPressure: "122/80",
+        glucose: "98",
+        pulse: "74",
+        temperature: "98.7°F",
+        measurementTime: "09:30 AM"
+      }
+    },
+    {
+      appId: "APP202",
+      docId: "DOC101",
+      pId: "P102",
+      name: "Sneha Kapoor",
+      date: "2025-04-04",
+      vitals: {
+        bloodPressure: "128/86",
+        glucose: "105",
+        pulse: "78",
+        temperature: "99.0°F",
+        measurementTime: "11:15 AM"
+      }
+    },
+    {
+      appId: "APP203",
+      docId: "DOC101",
+      pId: "P103",
+      name: "Vikram Singh",
+      date: "2025-04-05",
+      vitals: {
+        bloodPressure: "115/75",
+        glucose: "100",
+        pulse: "69",
+        temperature: "98.2°F",
+        measurementTime: "01:00 PM"
+      }
+    }
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
+  const [selectedVitals, setSelectedVitals] = useState(null);
 
-  const formatDate = (date) => {
-    return date.toISOString().split("T")[0];
-  };
-
-  const today = formatDate(new Date());
-  const yesterday = formatDate(new Date(Date.now() - 86400000));
-  const tomorrow = formatDate(new Date(Date.now() + 86400000));
-
-  const getDateLabel = (dateString) => {
-    if (dateString === today) return "Today";
-    if (dateString === yesterday) return "Yesterday";
-    if (dateString === tomorrow) return "Tomorrow";
-    return dateString;
-  };
-
-  const filteredPatients = patients.filter((patient) => {
-    const nameMatch = patient.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const dateMatch = selectedDate ? patient.date === selectedDate : true;
-    return nameMatch && dateMatch;
-  });
+  const filteredAppointments = appointments
+    .filter((appointment) =>
+      appointment.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((appointment) =>
+      selectedDate ? appointment.date === selectedDate : true
+    );
 
   return (
-    <div className="main-container">
-      <Sidebar />
-      <div className="content-container">
-        <h1>Patient Info</h1>
+    <div className="staff-appointments">
+      <h1>Booked Appointments</h1>
 
-        {/* Search and Date Filter */}
-        <div className="filter-container">
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search by name..."
-              className="search-bar"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <span className="search-icon">🔍</span>
-          </div>
+      {/* Search and Date Filter */}
+      <div className="filter-bar">
+        <input
+          type="text"
+          placeholder="Search by Patient Name..."
+          className="search-bar"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <input
+          type="date"
+          className="date-filter"
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+        />
+      </div>
 
-          <div className="date-filter-wrapper">
-            <label className="filter-label">View by date:</label>
-            <input
-              type="date"
-              className="date-picker"
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
-            />
-            {selectedDate && (
-              <button onClick={() => setSelectedDate("")} className="clear-btn">
-                Clear
-              </button>
-            )}
-            {selectedDate && (
-              <span className="date-label">
-                Showing entries for <strong>{getDateLabel(selectedDate)}</strong>
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Patient Table */}
-        <table className="patient-table">
+      {/* Appointment Table */}
+      <div className="table-container">
+        <table>
           <thead>
             <tr>
-              <th>Application ID</th>
-              <th>Patient ID</th>
-              <th>Patient Name</th>
-              <th>Date</th>
+              <th>App_Id</th>
+              <th>Doc_Id</th>
+              <th>P_Id</th>
+              <th>P_Name</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {filteredPatients.length > 0 ? (
-              filteredPatients.map((patient, index) => (
-                <tr key={index}>
-                  <td>{patient.applicationId}</td>
-                  <td>{patient.patientId}</td>
-                  <td>{patient.name}</td>
-                  <td>{patient.date}</td>
-                  <td>
-                    <button
-                      className="view-details-btn"
-                      onClick={() => navigate(`/patient-details/${patient.patientId}`)}
-                    >
-                      View
-                    </button>
-                  </td>
-                </tr>
-              ))
-            ) : (
+            {filteredAppointments.map((appointment, index) => (
+              <tr key={index}>
+                <td>{appointment.appId}</td>
+                <td>{appointment.docId}</td>
+                <td>{appointment.pId}</td>
+                <td>{appointment.name}</td>
+                <td>
+                  <button
+                    className="view-btn"
+                    onClick={() => setSelectedVitals(appointment.vitals)}
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+            {filteredAppointments.length === 0 && (
               <tr>
-                <td colSpan="5" className="no-data">No records found</td>
+                <td colSpan="5">No appointments found.</td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
+
+      {/* Vitals Popup */}
+      {selectedVitals && (
+        <div className="vitals-popup">
+          <h2>Patient Vitals</h2>
+          <p><strong>Blood Pressure:</strong> {selectedVitals.bloodPressure}</p>
+          <p><strong>Glucose:</strong> {selectedVitals.glucose}</p>
+          <p><strong>Pulse:</strong> {selectedVitals.pulse}</p>
+          <p><strong>Temperature:</strong> {selectedVitals.temperature}</p>
+          <p><strong>Measurement Time:</strong> {selectedVitals.measurementTime}</p>
+          <button onClick={() => setSelectedVitals(null)} className="close-btn">Close</button>
+        </div>
+      )}
     </div>
   );
 };
 
-export default PatientInfo;
+export default Appointments_View_Doctor;
